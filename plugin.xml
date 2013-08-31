@@ -7,7 +7,7 @@
     <license>MIT</license>
     <keywords>cordova,file,util</keywords>
 
-    <js-module src="PromptToOpenWith.js" name="PromptToOpenWith">
+    <js-module src="www/PromptToOpenWith.js" name="PromptToOpenWith">
         <clobbers target="window.PromptToOpenWith" />
     </js-module>
 
