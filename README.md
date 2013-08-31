@@ -1,5 +1,5 @@
 ### PhoneGap iOS PromptToOpenWith Plugin
-#### by: Andrew Trice (atrice@adobe.com)
+#### Adapted to phonegap 3.x from ExternalFileUtil by Andrew Trice (atrice@adobe.com)
 
 The PhoneGap iOS PromptToOpenWith Plugin is a native Plugin for PhoneGap/Apache Cordova which provides the ability to open documents in an external program on the iOS device.   A sample use case would be that you want to provide the user the ability to open a file in another program, of their choosing.   For instance, the user wants to open a DRM-protected PDF in Adobe Reader. Note: the user must already have the appropriate external reader app installed.
 
