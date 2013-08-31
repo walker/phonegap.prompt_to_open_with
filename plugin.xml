@@ -8,7 +8,7 @@
     <keywords>cordova,file,util</keywords>
 
     <js-module src="www/PromptToOpenWith.js" name="PromptToOpenWith">
-        <clobbers target="openPrompt" />
+        <clobbers target="window.promptToOpenWith" />
     </js-module>
 
     <!-- ios -->
