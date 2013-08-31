@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-    id="org.apache.cordova.plugin.external_file_util"
+    id="org.apache.cordova.plugin.prompt_to_open_with"
     version="0.3.0">
-    <name>ExternalFileUtil</name>
-    <description>Cordova External File Util Plugin</description>
+    <name>PromptToOpenWith</name>
+    <description>Cordova Prompt to Open File With [app] Plugin</description>
     <license>MIT</license>
     <keywords>cordova,file,util</keywords>
 
-    <js-module src="ExternalFileUtil.js" name="ExternalFileUtil">
-        <clobbers target="window.ExternalFileUtil" />
+    <js-module src="PromptToOpenWith.js" name="PromptToOpenWith">
+        <clobbers target="window.PromptToOpenWith" />
     </js-module>
 
     <!-- ios -->
     <platform name="ios">
         <config-file target="config.xml" parent="/*">
-            <feature name="ExternalFileUtil">
-                <param name="ios-package" value="CDVExternalFileUtil"/>
+            <feature name="PromptToOpenWith">
+                <param name="ios-package" value="CDVPromptToOpenWith"/>
             </feature>
         </config-file>
         
-        <header-file src="src/ios/CDVExternalFileUtil.h" />
-        <source-file src="src/ios/CDVExternalFileUtil.m" />
+        <header-file src="src/ios/CDVPromptToOpenWith.h" />
+        <source-file src="src/ios/CDVPromptToOpenWith.m" />
     </platform>
 </plugin>
