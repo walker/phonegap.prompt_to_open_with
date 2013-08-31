@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="org.apache.cordova.plugin.external_file_util"
+    version="0.3.0">
+    <name>ExternalFileUtil</name>
+    <description>Cordova External File Util Plugin</description>
+    <license>MIT</license>
+    <keywords>cordova,file,util</keywords>
+
+    <js-module src="ExternalFileUtil.js" name="ExternalFileUtil">
+        <clobbers target="window.ExternalFileUtil" />
+    </js-module>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ExternalFileUtil">
+                <param name="ios-package" value="CDVExternalFileUtil"/>
+            </feature>
+        </config-file>
+        
+        <header-file src="src/ios/CDVExternalFileUtil.h" />
+        <source-file src="src/ios/CDVExternalFileUtil.m" />
+    </platform>
+</plugin>
