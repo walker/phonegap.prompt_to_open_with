@@ -20,21 +20,21 @@
 
 @implementation CDVPromptToOpenWith
 
-
-- (void) openWith:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
+- (void) openWith:(CDVInvokedUrlCommand*) command;
+// - (void) openWith:(NSMutableArray*)arguments withDict:(NSMutableDictionary*)options
 {   
     CDVPluginResult* pluginResult;
-    NSString* callbackID = [arguments pop];
+    NSString* callbackID = [command argumentAtIndex:2];
     
-    NSString *path = [arguments objectAtIndex:0]; 
+    NSString* path = [command argumentAtIndex:0];
     
-    NSString *uti = [arguments objectAtIndex:1]; 
+    NSString* uti = [command argumentAtIndex:1];
     
-    //NSLog(@"path %@, uti:%@", path, uti);
+    // NSLog(@"path %@, uti:%@", path, uti);
     
     NSArray *parts = [path componentsSeparatedByString:@"/"];
     NSString *previewDocumentFileName = [parts lastObject];
-    //NSLog(@"The file name is %@", previewDocumentFileName);
+    NSLog(@"The file name is %@", previewDocumentFileName);
     
     NSData *fileRemote = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:path]];
     
@@ -44,7 +44,7 @@
     if (!documentsDirectory) {NSLog(@"Documents directory not found!");}
     localFile = [documentsDirectory stringByAppendingPathComponent:previewDocumentFileName];
     [fileRemote writeToFile:localFile atomically:YES];
-    //NSLog(@"Resource file '%@' has been written to the Documents directory from online", previewDocumentFileName);
+    NSLog(@"Resource file '%@' has been written to the Documents directory from online", previewDocumentFileName);
     
     
     // Get file again from Documents directory
@@ -63,13 +63,13 @@
 }
 
 - (void) documentInteractionControllerDidDismissOpenInMenu:(UIDocumentInteractionController *)controller {
-    //NSLog(@"documentInteractionControllerDidDismissOpenInMenu");
+    // NSLog(@"documentInteractionControllerDidDismissOpenInMenu");
     
     [self cleanupTempFile:controller];
 }
 
 - (void) documentInteractionController: (UIDocumentInteractionController *) controller didEndSendingToApplication: (NSString *) application {
-    //NSLog(@"didEndSendingToApplication: %@", application);
+    // NSLog(@"didEndSendingToApplication: %@", application);
     
     [self cleanupTempFile:controller];
 }
@@ -81,9 +81,9 @@
     NSError *error;
     BOOL fileExists = [fileManager fileExistsAtPath:localFile];   
     
-    //NSLog(@"Path to file: %@", localFile);   
-    //NSLog(@"File exists: %d", fileExists);
-    //NSLog(@"Is deletable file at path: %d", [fileManager isDeletableFileAtPath:localFile]);
+    // NSLog(@"Path to file: %@", localFile);   
+    // NSLog(@"File exists: %d", fileExists);
+    // NSLog(@"Is deletable file at path: %d", [fileManager isDeletableFileAtPath:localFile]);
     
     if (fileExists) 
     {
